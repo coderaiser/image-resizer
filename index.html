@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Image Resizer</title>
+        <link href=http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css rel=stylesheet>
+        <style>
+            .input-append, #image, .loading {
+                display:block;
+            }
+            
+            #image {
+                margin: 10px;
+            }
+            
+            .alert {
+                margin-top:10px;
+            }
+            
+            .loading {
+                position:relative;
+                top:4px;
+                background:url(//raw.github.com/coderaiser/cloudcmd/dev/img/spinner.gif);
+            }
+            
+            .icon {
+                display:inline-block;
+                width:16px;
+                height:16px;
+                margin-left:0.5%;
+                font-family: 'Octicons Regular';
+                font-size:16px;
+            }
+            
+            .hidden {
+                display:none;
+            }
+            
+            .content {
+                margin:20px;
+            }
+            
+            .smallFont {
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class=content>
+            <legend>Change image size <p class=smallFont>(c) <a href=//coderaiser.github.io>coderaiser</a></p></legend>
+            <label>Chose image:</label>
+            
+            <div class="input-append">
+                <input type=text class=filename disabled placeholder="File name">
+                <button id=upload class="btn btn-warning"><i class=icon-search></i></button>
+                <span id=loading class="icon"></span>
+            </div>
+            
+            <div class="input-append">
+                <input id="width" type="number" min=1 placeholder="Width" disabled>
+                <span class="add-on">px</span>
+            </div>
+            <div class="input-append">
+                <input id="height" type="number" min=1 placeholder="Height" disabled>
+                <span class="add-on">px</span>
+            </div>
+                <button id=update class="btn btn-success" disabled title=Update><i class="icon-refresh"></i></button>
+                <button id=remove class="btn btn-danger" disabled title=Remove><i class="icon-remove"></i></button>
+                <span id=updating class="icon"></span>
+                <div class="alert alert-error hidden">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <span class="msg" Height and width could be numbers only.</span>
+              </div>
+                <img id=image />
+        </div>
+        
+        <script src=http://api.filepicker.io/v1/filepicker.js></script>
+        <script src=http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js></script>
+        <script src=http://io.cloudcmd.io/join/lib/client/dom.js:lib/util.js></script>
+        <script src=app.js></script>
+    </body>
+</html>
