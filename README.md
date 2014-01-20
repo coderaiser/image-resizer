@@ -1,2 +1,2 @@
-image-resize
+image-resizer
 ============
