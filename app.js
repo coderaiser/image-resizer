@@ -55,7 +55,7 @@ var $, filepicker, Util, DOM;
                         Height.max   =    
                         metadata.height;
                         
-                 })
+                 });
                 
                 Update.disabled = 
                 Remove.disabled = 
@@ -76,7 +76,7 @@ var $, filepicker, Util, DOM;
                 lMaxWidth   = Width.max      - 0,
                 lMaxHeight  = Height.max     - 0;
 
-            var lMsg = DOM.getByClass('msg', Alert)[0]
+            var lMsg = DOM.getByClass('msg', Alert)[0];
             if(!$.isNumeric(lWidth) || !$.isNumeric(lHeight)){
                 lMsg.textContent = 'Height and width could be numbers only.';
                 DOM.show( Alert );
@@ -89,7 +89,7 @@ var $, filepicker, Util, DOM;
                 Width.value = OldWidth;
                 Height.value = OldHeight;
             }
-            else if(OldWidth != lWidth || OldHeight != lHeight){
+            else if(OldWidth !== lWidth || OldHeight !== lHeight){
                 OldWidth  = lWidth;
                 OldHeight = lHeight;
                 
