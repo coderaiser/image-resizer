@@ -11,12 +11,10 @@
             $Upload  = $('#upload'),
             $Update  = $('#update'),
             $Remove  = $('#remove'),
-            Upload   = $Upload[0],
             Update   = $Update[0],
             Remove   = $Remove[0],
             FileName = $('.filename')[0],
             Updating = $('#updating')[0],
-            Loading  = $('#loading')[0],
             File, OldWidth, OldHeight;
             URL;
             
