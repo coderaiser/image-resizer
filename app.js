@@ -17,7 +17,7 @@ var $, filepicker, Util, DOM;
             Remove   = $Remove[0],
             FileName = $('.filename')[0],
             Updating = $('#updating')[0],
-            File, OldWidth, OldHeight;
+            File, OldWidth, OldHeight,
             URL;
             
             filepicker.setKey('AACq5fTfzRY2E_Rw_4kyaz');
