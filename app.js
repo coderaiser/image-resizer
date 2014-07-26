@@ -1,7 +1,9 @@
+var $, filepicker, Util, DOM;
+
 (function(Util, DOM, $){
     'use strict';
     
-    $(".alert").alert();
+    $('.alert').alert();
     
     $(function(){
         var Alert    = $('.alert')[0],
