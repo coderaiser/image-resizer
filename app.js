@@ -1,13 +1,13 @@
-var $, filepicker, Util, DOM;
+var $, filepicker;
 
-(function(Util, DOM, $){
+(function($){
     'use strict';
     
     $('.alert').alert();
     
     $(function(){
-        var Alert    = $('.alert')[0],
-            Image    = $('#image')[0],
+        var $Alert    = $('.alert'),
+            $Image    = $('#image'),
             Width    = $('#width')[0],
             Height   = $('#height')[0],
             $Upload  = $('#upload'),
@@ -26,12 +26,12 @@ var $, filepicker, Util, DOM;
             $Update.click(updateImage);
             $Remove.click(removeImage);
             
-            $(Image).on('load', function(){
-                $(Image).fadeTo('fast', 1);
+            $Image.on('load', function(){
+                $Image.fadeTo('fast', 1);
                 hideSpinner();
             });
             
-            $(Image).on('error', function(){
+            $Image.on('error', function(){
                 $Updating.removeClass('loading');
             });
         
@@ -62,8 +62,8 @@ var $, filepicker, Util, DOM;
                 Height.disabled = 
                 Width.disabled = false;
                 
-                Image.src = URL;
-                DOM.show(Image);
+                $Image.attr('src', URL);
+                $Image.removeClass('hidden');
                 
                 FileName.value = FPFile.filename;
                 
@@ -76,16 +76,16 @@ var $, filepicker, Util, DOM;
                 lMaxWidth   = Width.max      - 0,
                 lMaxHeight  = Height.max     - 0;
 
-            var lMsg = DOM.getByClass('msg', Alert)[0];
+            var lMsg = $Alert.find('.msg')[0];
             if(!$.isNumeric(lWidth) || !$.isNumeric(lHeight)){
                 lMsg.textContent = 'Height and width could be numbers only.';
-                DOM.show( Alert );
+                $Alert.addClass('hidden');
                 Width.value = OldWidth;
                 Height.value = OldHeight;
             }else if(lWidth > lMaxWidth || lHeight > lMaxHeight){
                 lMsg.textContent = 'To big size. Max width: ' + lMaxWidth + 'px. Max height: ' + lMaxHeight + 'px.';
                 
-                DOM.show( Alert );
+                $Alert.removeClass('hidden');
                 Width.value = OldWidth;
                 Height.value = OldHeight;
             }
@@ -93,9 +93,9 @@ var $, filepicker, Util, DOM;
                 OldWidth  = lWidth;
                 OldHeight = lHeight;
                 
-                $(Image).fadeTo('fast', 0.5);
-                Image.src = URL + '/convert' +
-                    '?w='+ lWidth + '&h=' + lHeight;
+                $Image.fadeTo('fast', 0.5);
+                $Image.attr('src', URL + '/convert' +
+                    '?w='+ lWidth + '&h=' + lHeight);
                 
                 showSpinner();
             }
@@ -114,7 +114,7 @@ var $, filepicker, Util, DOM;
                 
                 FileName.value = '';
                 
-                DOM.hide(Image);
+                $Image.addClass('hidden');
                 hideSpinner();
             });
         }
@@ -128,4 +128,4 @@ var $, filepicker, Util, DOM;
         }
     });
     
-})(Util, DOM, $);
+})($);
