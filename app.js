@@ -16,7 +16,7 @@ var $, filepicker, Util, DOM;
             Update   = $Update[0],
             Remove   = $Remove[0],
             FileName = $('.filename')[0],
-            Updating = $('#updating')[0],
+            $Updating = $('#updating'),
             File, OldWidth, OldHeight,
             URL;
             
@@ -32,7 +32,7 @@ var $, filepicker, Util, DOM;
             });
             
             $(Image).on('error', function(){
-                DOM.removeClass(Updating, 'loading');
+                $Updating.removeClass('loading');
             });
         
         function uploadImage(){
@@ -119,12 +119,12 @@ var $, filepicker, Util, DOM;
             });
         }
         
-        function showSpinner(pElement){
-            DOM.addClass(pElement || Updating, 'loading');
+        function showSpinner() {
+            $Updating.addClass('loading');
         }
         
-        function hideSpinner(pElement){
-            DOM.removeClass(pElement || Updating, 'loading');
+        function hideSpinner() {
+            $Updating.removeClass('loading');
         }
     });
     
