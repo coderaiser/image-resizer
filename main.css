@@ -13,7 +13,7 @@
 .loading {
     position:relative;
     top:4px;
-    background:url(//raw.github.com/coderaiser/cloudcmd/dev/img/spinner.gif);
+    background:url(//raw.github.com/coderaiser/cloudcmd/master/img/spinner.gif);
 }
 
 .icon {
